@@ -18,7 +18,7 @@ colour = {
     'silver' : pygame.Color(192,192,192)
 }
 colour2 = {}
-file = open ('C:\\Users\\Akmal\\Desktop\\Files\\500+ colours.csv','r')
+file = open ('500+ colours.csv','r')
 lines = file.readlines()
 file.close
 colName = ''
