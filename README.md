@@ -8,3 +8,6 @@ just any little random projects i've been working on
 <br/>
 so far it's just the little car game
 </p>
+
+
+the data from the csv came from <a href = "http://cloford.com/resources/colours/500col.htm"> here </a>
