@@ -20,8 +20,15 @@ colour = {
 }
 count = 0
 running = True
-sides = 10
+sides = 6
 bg = 'black'
+
+def intAngle(sides):
+    extA = 360/sides
+    intA = 180-extA
+    return intA
+
+
 while running:
     windowSurf.fill(colour[bg])
 ##    pygame.draw.circle(windowSurf,colour['red'], (int(windowW/2),int(windowH/2)), int(20 +10*math.sin(count)), 1)
@@ -36,9 +43,20 @@ while running:
         pygame.draw.circle(windowSurf, colour['magenta'], (int(windowW/2 + math.sin(i/10 * 2 * math.pi * count)*i*10),int(windowH/2 + math.cos(i/10 * 2 * math.pi * count)*i*10)), 15,1)
 
     
-##    for i in range(sides):
-##        pygame.draw.line(windowSurf, colour['cyan'], (int(windowW/2 + math.sin( i/sides * 2 * math.pi) * 40), int(windowH/2 + math.cos( i/sides * 2 * math.pi)*40)),(int(windowW/2 + math.sin( (i+1)/sides * 2 * math.pi) * 40), int(windowH/2 + math.cos( (i+1)/sides * 2 * math.pi)*40)) )
+    for i in range(sides):
+        pygame.draw.line(windowSurf, colour['cyan'], (int(windowW/2 + math.sin( i/sides * 2 * math.pi) * 40), int(windowH/2 + math.cos( i/sides * 2 * math.pi)*40)),(int(windowW/2 + math.sin( (i+1)/sides * 2 * math.pi) * 40), int(windowH/2 + math.cos( (i+1)/sides * 2 * math.pi)*40)) )
+        
     #now i wanna do summat with this to make it move
+
+
+##    for i in range(5):
+##        for j in range(i*2):
+##            pygame.draw.circle(windowSurf, colour ['yellow'], 
+
+
+    #####pygame.draw.arc(windowSurf, colour['silver'], 180, 288, (
+
+
     pygame.display.update()
     fpsClock.tick(30)
     
