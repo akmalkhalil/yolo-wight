@@ -5,15 +5,13 @@ def emptyTree(tree):
     for i in tree.get_children():
         tree.delete(i)
 
-def createTree(tree, cols, yscroll):
+def createTree(tree, cols, yscroll, widths):#len(widths) must >= len(cols)
     #creates headings
     for i in range(len(cols)):
         tree.heading('#'+str(i+1), text = cols[i], anchor = W)
     tree.column('#0', stretch=NO, minwidth=0, width=0)
-    tree.column('#1', stretch=NO, minwidth=90, width=90)
-    tree.column('#2', stretch=NO, minwidth=150, width=150)
-    tree.column('#3', stretch=NO, minwidth=150, width=150)
-    tree.column('#4', stretch=NO, minwidth=150, width=150)
+    for i in range(len(cols)):
+        tree.column('#'+str(i+1), stretch = NO, minwidth = widths[i], width = widths[i])
     tree.configure(yscroll=yscroll.set)#yscroll bar
 
 def insertIntoTree(tree, values):
@@ -28,7 +26,7 @@ myCols = ['column'+str(x) for x in range(1,6)]
 myTree = Treeview(myGUI, columns = myCols,selectmode = 'browse', height = 5)
 #default selectmode is extended - with browse you can only select one item at a time
 yscrollbar = Scrollbar(myGUI, orient='vertical', command=myTree.yview)
-createTree(myTree, myCols, yscrollbar)
+createTree(myTree, myCols, yscrollbar, (90,150,150,150,150))
 
 myTree.grid(row = 1, column = 1, sticky = NSEW)
 yscrollbar.grid(row =1, column = 1, sticky = E+NS)
